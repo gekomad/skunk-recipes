@@ -25,8 +25,7 @@ scalacOptions ++= Seq(
   "-Xfatal-warnings" // Fail the compilation if there are any warnings.
 )
 
-lazy val doobieVersion = "0.8.8"
-libraryDependencies += "org.tpolecat"   %% "skunk-core"   % "0.0.7"
+libraryDependencies += "org.tpolecat"   %% "skunk-core"   % "0.0.8"
 libraryDependencies += "org.scalatest"  %% "scalatest"    % "3.2.0-M2"      % Test
 
 parallelExecution in Test := false
