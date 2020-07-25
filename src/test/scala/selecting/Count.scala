@@ -15,7 +15,7 @@ class Count extends AnyFunSuite {
 
     val aa: IO[Long] = Setup.session.use(_.unique(query))
 
-    assert(aa.unsafeRunSync == 239)
+    assert(aa.unsafeRunSync() == 239)
   }
 
 }

@@ -20,7 +20,7 @@ class NestedClassMap extends AnyFunSuite {
 
     val mySelect = Setup.session.use(_.execute(query).map(_.toMap))
 
-    assert(mySelect.unsafeRunSync == Map(Code("ABW") -> Country("Aruba", 103000, Some(828.00))))
+    assert(mySelect.unsafeRunSync() == Map(Code("ABW") -> Country("Aruba", 103000, Some(828.00))))
   }
 
 }

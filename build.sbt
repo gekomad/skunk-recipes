@@ -1,8 +1,8 @@
 name := "skunk-recipes"
 
-version := "0.0.2"
+version := "0.0.3"
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.3"
 
 scalacOptions ++= Seq(
   "-deprecation", // Emit warning and location for usages of deprecated APIs.
@@ -17,7 +17,6 @@ scalacOptions ++= Seq(
   "-Ywarn-dead-code", // Warn when dead code is identified.
   "-Ywarn-extra-implicit", // Warn when more than one implicit parameter section is defined.
   "-Xlint:missing-interpolator", // A string literal appears to be missing an interpolator id.
-  "-Xlint:nullary-override", // Warn when non-nullary `def f()' overrides nullary `def f'.
   "-Xlint:nullary-unit", // Warn when nullary methods return Unit.
   "-Xlint:option-implicit", // Option.apply used implicit view.
   "-Xlint:package-object-classes", // Class or object defined in package object.
@@ -25,7 +24,7 @@ scalacOptions ++= Seq(
   "-Xfatal-warnings" // Fail the compilation if there are any warnings.
 )
 
-libraryDependencies += "org.tpolecat"   %% "skunk-core"   % "0.0.11"
+libraryDependencies += "org.tpolecat"   %% "skunk-core"   % "0.0.15"
 libraryDependencies += "org.scalatest"  %% "scalatest"    % "3.3.0-SNAP2"      % Test
 
 parallelExecution in Test := false

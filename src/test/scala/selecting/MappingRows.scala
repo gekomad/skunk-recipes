@@ -19,7 +19,7 @@ class MappingRows extends AnyFunSuite {
     val mySelect = Setup.session.use(_.execute(query))
 
     assert(
-      mySelect.unsafeRunSync == List(
+      mySelect.unsafeRunSync() == List(
         Country("ABW", "Aruba", 103000, Some(828.00)),
         Country("AFG", "Afghanistan", 22720000, Some(5976.00)),
         Country("AGO", "Angola", 12878000, Some(6648.00))

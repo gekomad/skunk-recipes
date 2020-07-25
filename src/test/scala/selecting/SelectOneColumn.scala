@@ -16,6 +16,6 @@ class SelectOneColumn extends AnyFunSuite {
 
     val aa: IO[List[String]] = Setup.session.use(_.execute(query))
 
-    assert(aa.unsafeRunSync == List("Afghanistan", "Albania"))
+    assert(aa.unsafeRunSync() == List("Afghanistan", "Albania"))
   }
 }

@@ -21,7 +21,7 @@ class NestedClass extends AnyFunSuite {
     val mySelect = Setup.session.use(_.execute(query))
 
     assert(
-      mySelect.unsafeRunSync == List(
+      mySelect.unsafeRunSync() == List(
         (Code("ABW"), Country("Aruba", 103000, Some(828.00))),
         (Code("AFG"), Country("Afghanistan", 22720000, Some(5976.00))),
         (Code("AGO"), Country("Angola", 12878000, Some(6648.00)))

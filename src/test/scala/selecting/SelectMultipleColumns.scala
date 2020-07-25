@@ -17,7 +17,7 @@ class SelectMultipleColumns extends AnyFunSuite {
     val mySelect = Setup.session.use(_.execute(query))
 
     assert(
-      mySelect.unsafeRunSync == List(
+      mySelect.unsafeRunSync() == List(
         ((("ABW", "Aruba"), 103000), Some(828.00)),
         ((("AFG", "Afghanistan"), 22720000), Some(5976.00)),
         ((("AGO", "Angola"), 12878000), Some(6648.00))
