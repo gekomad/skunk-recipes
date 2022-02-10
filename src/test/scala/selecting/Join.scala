@@ -1,6 +1,7 @@
 package selecting
 import cats.effect.IO
 import org.scalatest.funsuite.AnyFunSuite
+import cats.effect.unsafe.implicits.global
 
 class Join extends AnyFunSuite {
 
@@ -23,7 +24,7 @@ class Join extends AnyFunSuite {
                  order by c.code desc"""
         .query(varchar ~ bpchar(3) ~ varchar.opt ~ varchar.opt).map {
           case a ~ b ~ Some(c) ~ Some(d)  => (Country(a, b), Some(City(c, d)))
-          case a ~ b ~ c ~ d              => (Country(a, b), None)
+          case a ~ b ~ _ ~ _              => (Country(a, b), None)
         }
 
       s.execute(q)

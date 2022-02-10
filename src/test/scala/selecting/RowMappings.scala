@@ -2,6 +2,7 @@ package selecting
 
 import org.scalatest.funsuite.AnyFunSuite
 import skunk.~
+import cats.effect.unsafe.implicits.global
 
 class RowMappings extends AnyFunSuite {
 

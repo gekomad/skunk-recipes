@@ -1,6 +1,7 @@
 package selecting
 
 import org.scalatest.funsuite.AnyFunSuite
+import cats.effect.unsafe.implicits.global
 
 class MappingRows extends AnyFunSuite {
 

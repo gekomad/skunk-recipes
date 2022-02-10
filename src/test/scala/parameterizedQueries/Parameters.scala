@@ -1,5 +1,6 @@
 package parameterizedQueries
 
+import cats.effect.unsafe.implicits.global
 import org.scalatest.funsuite.AnyFunSuite
 
 class Parameters extends AnyFunSuite {

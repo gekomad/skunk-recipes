@@ -1,6 +1,7 @@
 package parameterizedQueries
 
 import org.scalatest.funsuite.AnyFunSuite
+import cats.effect.unsafe.implicits.global
 
 class BiggerThan extends AnyFunSuite {
 
