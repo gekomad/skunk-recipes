@@ -2,7 +2,7 @@ package skunkrecipes
 
 import cats.effect._
 import skunk._
-import natchez.Trace.Implicits.noop
+import org.typelevel.otel4s.trace.Tracer.Implicits.noop
 
 object Setup {
 

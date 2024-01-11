@@ -13,7 +13,7 @@ class Parameters extends AnyFunSuite {
     import skunkrecipes.Setup
 
     case class Country(code: String, name: String, pop: Int, gnp: Option[BigDecimal])
-    val country: Decoder[Country] = (bpchar(3) ~ varchar ~ int4 ~ numeric(10, 2).opt).gmap[Country]
+    val country: Decoder[Country] = (bpchar(3) *: varchar *: int4 *: numeric(10, 2).opt).to[Country]
 
     val f =
       sql"""
@@ -23,8 +23,8 @@ class Parameters extends AnyFunSuite {
       and   population < $int4
       """.query(country)
 
-    val mySelect = Setup.session.use(_.prepare(f).use { ps =>
-      ps.stream(150000000 ~ 200000000, 64).take(2).compile.to(List)
+    val mySelect = Setup.session.use(_.prepare(f).flatMap { ps =>
+      ps.stream((150000000 , 200000000), 64).take(2).compile.to(List)
     })
 
     assert(

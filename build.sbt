@@ -1,8 +1,8 @@
 name := "skunk-recipes"
 
-version := "0.0.4"
+version := "0.0.5"
 
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.12"
 
 scalacOptions ++= Seq(
   "-deprecation", // Emit warning and location for usages of deprecated APIs.
@@ -24,7 +24,7 @@ scalacOptions ++= Seq(
   "-Xfatal-warnings" // Fail the compilation if there are any warnings.
 )
 
-libraryDependencies += "org.tpolecat"   %% "skunk-core"   % "0.2.3"
+libraryDependencies += "org.tpolecat"   %% "skunk-core"   % "1.1.0-M2"
 libraryDependencies += "org.scalatest"  %% "scalatest"    % "3.3.0-SNAP3"      % Test
 
 Test / parallelExecution := false

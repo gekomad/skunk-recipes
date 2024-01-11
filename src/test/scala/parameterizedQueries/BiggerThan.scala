@@ -13,12 +13,13 @@ class BiggerThan extends AnyFunSuite {
   test("bigger than") {
 
     case class Country(code: String, name: String, pop: Int, gnp: Option[BigDecimal])
-    val country: Decoder[Country] = (bpchar(3) ~ varchar ~ int4 ~ numeric(10, 2).opt).gmap[Country]
+
+    val country: Decoder[Country] = (bpchar(3) *: varchar *: int4 *: numeric(10, 2).opt).to[Country]
     val minPop                    = 150000000
     val f =
       sql"""select code, name, population, gnp from country where population > $int4 order by code""".query(country)
 
-    val mySelect = Setup.session.use(_.prepare(f).use { ps =>
+    val mySelect = Setup.session.use(_.prepare(f).flatMap { ps =>
       ps.stream(minPop, 64).take(2).compile.to(List)
     })
 

@@ -13,7 +13,7 @@ class MappingRows extends AnyFunSuite {
 
     case class Country(code: String, name: String, pop: Int, gnp: Option[BigDecimal])
 
-    val country: Decoder[Country] = (bpchar(3) ~ varchar ~ int4 ~ numeric(10, 2).opt).gmap[Country]
+    val country: Decoder[Country] = (bpchar(3) *: varchar *: int4 *: numeric(10, 2).opt).to[Country]
 
     val query = sql"select code, name, population, gnp from country order by code limit 3".query(country)
 
